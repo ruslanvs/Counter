@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Counter</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Counter</h1>
+        <p>{{ counter }} times</p>
+
+        <form action='/result' method='post'>
+            <!-- <div> -->
+                <!-- <label for="counter">Your name:</label> -->
+                <!-- <input name="counter" id="name" type="text"> -->
+            <!-- </div> -->
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+</body>
+</html>
