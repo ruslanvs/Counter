@@ -7,33 +7,22 @@ def front_page():
     
     if "counter" not in session:
         session["counter"] = 0
-    session["counter"] += 2
 
+    session["counter"] += 1
     counter = session["counter"]
-
     return render_template( "index.html", counter = counter )
 
-@app.route( "/result", methods = ["POST"])
+@app.route( "/result", methods = ["POST"] )
 def result():
+    session["counter"] += 1
+    
     return redirect( "/" )
 
-
-# @app.route( "/result", methods = ["post"])
-# def result():
-#     iname = request.form["fname"]
-#     location = request.form["location"]
-#     language = request.form["language"]
-#     comment = request.form["comment"]
-
-#     return render_template( "result.html", iname = iname, language = language, location = location, comment = comment )
-#     return redirect( "/" )
-
-# @app.route( "/process", methods = ["post"])
-# def process():
-#     print "Data from form:"
-#     print request.form
-#     name = request.form["name"]
-#     print name
-#     return redirect( "/" )
+@app.route( "/reset", methods = ["POST"] )
+def reset():
+    print "adas;lkj"
+    session["counter"] = 0
+    # session.clear() // also works
+    return redirect( "/" )
 
 app.run( debug = True )
